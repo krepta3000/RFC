@@ -12,9 +12,9 @@ REM Generalized factorial calculation
 FACT = N
 IF F > 1 THEN
     PRINT "Factorial Jumps:"
-    WHILE (FACT - (F-1)) >= 1
+    WHILE (FACT - F) >= 1
         PRINT FACT; " -> ";
-        NEXT_JUMP = FACT - (F-1)
+        NEXT_JUMP = FACT - F
         FACT = FACT * NEXT_JUMP
     WEND
     PRINT FACT
