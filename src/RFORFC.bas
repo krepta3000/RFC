@@ -1,3 +1,4 @@
+MAIN:
 REM Ridiculous Factorial Calculator (Final RFO BASIC Version)
 CLS
 FACTORIAL_NOTATION$ = ""  % Start empty
@@ -112,5 +113,5 @@ SKIP:
 
 INPUT "Run again? (Y/N): ", Y$
 
-IF Y$ = "Y" THEN RUN
+IF Y$ = "Y" THEN GOTO MAIN
 IF Y$ = "N" THEN END
