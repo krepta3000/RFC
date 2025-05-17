@@ -20,9 +20,9 @@ YEAR = VAL(MID$(DATE_STRING, 7, 4)) ' Extract YYYY from system date
 FACT = N
 IF F > 1 THEN
     PRINT "Factorial Jumps:"
-    DO WHILE (FACT - (F - 1)) >= 1
+    DO WHILE (FACT - F) >= 1
         PRINT FACT; " -> ";
-        NEXT_JUMP = FACT - (F - 1)
+        NEXT_JUMP = FACT - F
         FACT = FACT * NEXT_JUMP
     LOOP
     PRINT FACT
