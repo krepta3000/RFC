@@ -1,38 +1,30 @@
-# RFC
-Ridiculous Factorial Calculator
-# 🤯 The Ridiculous Factorial Calculator  
-### Because normal math is **too predictable**  
+🧮 Ridiculous Factorial Calculator (RFO BASIC Edition)
+Created by Aaron Ingebrigtsen
+🚀 In collaboration with MS Copilot
 
-Welcome to **The Ridiculous Factorial Calculator**, where mathematical sanity is **optional** and factorials defy logic! 🔥  
+What Is This?
+Welcome to the most absurd, over-the-top factorial calculator ever devised! If regular factorials weren’t chaotic enough, this tool takes things to ridiculous depths—literally!
 
-## 🎩 What is this madness?  
-Ever wondered what would happen if factorials **ignored conventional rules** and **embraced total chaos**? Well, wonder no more. This calculator offers:  
-✅ **Standard Factorials (`n!`)** – For those who still believe in traditional math.  
-✅ **Chaos Mode** – Where exponentiation, recursion, and randomness conspire against reason.  
-✅ **Gamma Ray Gun Mode** – Because **why should integers get all the factorial fun?**  
+Why Use This?
+Need factorials with extra silliness? ✅
 
-## 🎮 How to Use  
-1️⃣ Enter a number to factorialize (or *obliterate*).  
-2️⃣ Select your mode:  
-   - `0` = **Normal Factorial** (boring, logical, still acceptable)  
-   - `1` = **Chaos Mode** (who needs order anyway?)  
-   - `2` = **Gamma Ray Gun Mode** (beware of excessive absurdity)  
-3️⃣ Behold the result—and pray it doesn’t exceed the known universe.  
+Want to break math so hard even NASA calls you? ✅
 
-## ⚠️ Warning  
-- If your result surpasses **1E100**, reality might break. 🚀  
-- Do **not** use this calculator to balance your finances. 💰  
-- Attempts to explain results **may cause existential crises.** 🤯  
+Curious what happens when a Gamma Ray Gun fires at a pie? ✅✅✅
 
-## 🚀 Why?  
-Because factorials should be **fun**, ridiculous, and **philosophically questionable**.  
-This calculator **challenges the boundaries of math** with humor, chaos, and *just enough logic to pretend it makes sense.*  
+How It Works
+1️⃣ Enter a positive whole number (N), because negative factorials don’t belong in this dimension. 2️⃣ Choose a factorial depth (! count)—the deeper you go, the weirder reality gets. 3️⃣ Watch mathematics unfold in ways nature never intended.
 
-## 💡 Credits  
-Created by **Aaron**, a fearless explorer of unconventional math, philosophical chaos, and programming absurdity.  
-Rescued from BASIC’s quirks and **brought to life with the power of ridiculousness!** 😆  
+Key Features
+✅ Supports deep factorial calculations (within reason and sanity). ✅ Injects humor into math because why not? ✅ Easter eggs lurking throughout—because programs should be fun! ✅ Traps invalid input so users can't break math too hard.
 
----
+Hidden Secrets
+✨ Birthday Easter Egg: Input 27!! with a depth of 10, and you'll unlock a special birthday message for Aaron himself! 🥧 Gamma Ray Gun vs. Pie: Answer the secret pie challenge, and… well, expect a rabbit to chase you away! 🐰
 
-Now your **README.md is as ridiculous as the calculator itself!** 🚀🔥  
-Want to add any *extra* absurdity before launching it into the world? 😂
+How to Run It
+1️⃣ Open RFO BASIC 2️⃣ Copy-paste the program into RFO BASIC 3️⃣ Run it. Watch reality bend.
+
+Acknowledgments
+👨‍💻 Aaron Ingebrigtsen – for his creativity, humor, and mathematical madness 🤖 MS Copilot – for helping debug and refine the chaos
+
+🔥 This README introduces the calculator in a way that matches its humor and style! Do you want to add any more notes or features before publishing? 😆🚀
