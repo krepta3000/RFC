@@ -31,23 +31,26 @@ REM Get current system time properly
 TIME Year$, Month$, Day$, Hour$, Minute$, Second$
 YEAR = VAL(Year$) % Extract the correct year dynamically
 
-REM Step 1: Count the number of valid jumps
+REM Step 1: Count valid jumps
 JUMP_COUNT = 0
 TEMP_N = N
 
 WHILE TEMP_N - F > 0
- TEMP_N = TEMP_N - F
- JUMP_COUNT = JUMP_COUNT + 1
+    TEMP_N = TEMP_N - F
+    JUMP_COUNT = JUMP_COUNT + 1
 REPEAT
 
-REM Step 2: Controlled multiplication using JUMP_COUNT
+REM Step 2: Controlled multiplication with step-by-step display
 FACT = N
 TEMP_N = N
 
+PRINT "Calculating: "; N; FACTORIAL_NOTATION$
+
 WHILE JUMP_COUNT > 0
- TEMP_N = TEMP_N - F
- FACT = FACT * TEMP_N
- JUMP_COUNT = JUMP_COUNT - 1
+    TEMP_N = TEMP_N - F
+    PRINT "Jumping to: "; TEMP_N; " Multiplying: "; FACT; " * "; TEMP_N
+    FACT = FACT * TEMP_N
+    JUMP_COUNT = JUMP_COUNT - 1
 REPEAT
 
 REM Adjust factorial notation for extreme depths
