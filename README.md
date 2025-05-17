@@ -26,5 +26,3 @@ How to Run It
 
 Acknowledgments
 👨‍💻 Aaron Ingebrigtsen – for his creativity, humor, and mathematical madness 🤖 MS Copilot – for helping debug and refine the chaos
-
-🔥 This README introduces the calculator in a way that matches its humor and style! Do you want to add any more notes or features before publishing? 😆🚀
