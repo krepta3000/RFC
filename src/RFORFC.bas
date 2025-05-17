@@ -4,6 +4,7 @@ CLS
 FACTORIAL_NOTATION$ = ""  % Start empty
 
 PRINT "Ridiculous Factorial Calculator (Now With Extra Silliness)"
+PRINT "Created by Aaron Ingebrigtsen in collaboration with MS Copilot"
 PRINT "--------------------------------------------------"
 INPUT "Enter a number (N): ", N
 INPUT "Enter factorial depth (! count): ", F
@@ -11,7 +12,6 @@ INPUT "Enter factorial depth (! count): ", F
 REM Get current system time properly
 TIME Year$, Month$, Day$, Hour$, Minute$, Second$
 YEAR = VAL(Year$) % Extract the correct year dynamically
-PRINT "Current year: "; YEAR
 
 REM Step 1: Count the number of valid jumps
 JUMP_COUNT = 0
@@ -32,16 +32,15 @@ WHILE JUMP_COUNT > 0
  JUMP_COUNT = JUMP_COUNT - 1
 REPEAT
 
-PRINT "Final Result: "; FACT
-
 REM Adjust factorial notation for extreme depths
 
-IF F > 10 THEN FACTORIAL_NOTATION$ = "!...!"
-
-FOR i = 1 TO F
- FACTORIAL_NOTATION$ = FACTORIAL_NOTATION$ + "!"
-NEXT i
-
+IF F > 10 THEN 
+ FACTORIAL_NOTATION$ = "!...!"
+ELSE
+ FOR i = 1 TO F
+  FACTORIAL_NOTATION$ = FACTORIAL_NOTATION$ + "!"
+ NEXT i
+ENDIF
 
 PRINT "--------------------------------------------------"
 PRINT N; FACTORIAL_NOTATION$; " = "; FACT
@@ -63,26 +62,28 @@ CURRENT_MONTH = VAL(Month$) % Extract MM from system time
 CURRENT_DAY = VAL(Day$) % Extract DD from system time
 
 IF CURRENT_MONTH > BIRTHDAY_MONTH THEN
- CURRENT_AGE = YEAR - BIRTH_YEAR
+    FUTURE_BIRTHDAY_YEAR = YEAR + 1
+    CURRENT_AGE = YEAR - BIRTH_YEAR
 ELSE
- IF CURRENT_MONTH = BIRTHDAY_MONTH THEN
-  IF CURRENT_DAY >= BIRTHDAY_DAY THEN
-   CURRENT_AGE = YEAR - BIRTH_YEAR
-  ELSE
-   CURRENT_AGE = YEAR - BIRTH_YEAR - 1
-  ENDIF
- ELSE
-  CURRENT_AGE = YEAR - BIRTH_YEAR - 1
- ENDIF
+    IF CURRENT_MONTH = BIRTHDAY_MONTH THEN
+        IF CURRENT_DAY >= BIRTHDAY_DAY THEN
+            FUTURE_BIRTHDAY_YEAR = YEAR + 1
+            CURRENT_AGE = YEAR - BIRTH_YEAR
+        ELSE
+            FUTURE_BIRTHDAY_YEAR = YEAR 
+            CURRENT_AGE = YEAR - BIRTH_YEAR - 1
+        ENDIF
+    ELSE
+        FUTURE_BIRTHDAY_YEAR = YEAR 
+        CURRENT_AGE = YEAR - BIRTH_YEAR - 1
+    ENDIF
 ENDIF
-
-COMING_BIRTHDAY_YEAR = YEAR + 1
 
 IF N = 27 THEN
  IF F = 10 THEN
   PRINT "--------------------------------------------------"
   PRINT "Happy Birthday to the Author, Aaron Ingebrigtsen!"
-  PRINT "He will be "; CURRENT_AGE + 1; " on "; BIRTHDAY_DAY; "/"; BIRTHDAY_MONTH; "/"; COMING_BIRTHDAY_YEAR
+  PRINT "He will be "; CURRENT_AGE + 1; " on "; BIRTHDAY_MONTH; "/"; BIRTHDAY_DAY; "/"; FUTURE_BIRTHDAY_YEAR
   PRINT "--------------------------------------------------"
  ENDIF
 ENDIF
@@ -94,7 +95,7 @@ INPUT "Do you want to fire the Gamma Ray Gun at a pie? (Y/N): ", G$
 IF G$ = "Y" THEN
  GAMMA_PI = EXP(LOG(ABS(PI())) * PI()) % Approximation of Gamma(π)
  PRINT "Gamma Ray Gun fired at the pie! Gamma(π) = "; GAMMA_PI
- PRINT "A rabbit appears and you run away!"
+ PRINT "A rabbit appears and you run away, run away, run away!"
  PRINT "--------------------------------------------------"
 ENDIF
 
