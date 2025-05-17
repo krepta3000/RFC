@@ -4,7 +4,7 @@ CLS
 FACTORIAL_NOTATION$ = ""  % Start empty
 
 PRINT "Ridiculous Factorial Calculator (Now With Extra Silliness)"
-PRINT "Created by Aaron Ingebrigtsen in collaboration with MS Copilot"
+PRINT "Created by Aaron Ingebrigtsen in collaboration with MS Copilot on 5/17/2025"
 PRINT "--------------------------------------------------"
 INPUT "Enter a number (N): ", N
 INPUT "Enter factorial depth (! count): ", F
