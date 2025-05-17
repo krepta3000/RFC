@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ridiculous Factorial Calculator</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; padding: 20px; }
+        #result { font-weight: bold; margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <h1>Ridiculous Factorial Calculator 🚀</h1>
+    <p>Created by Aaron Ingebrigtsen in collaboration with MS Copilot</p>
+
+    <label for="number">Enter a positive whole number:</label>
+    <input type="number" id="number" min="1">
+    <br><br>
+
+    <label for="depth">Enter factorial depth (! count):</label>
+    <input type="number" id="depth" min="1">
+    <br><br>
+
+    <button onclick="calculateFactorial()">Calculate 🚀</button>
+    <p id="result"></p>
+
+    <script>
+        function calculateFactorial() {
+            let n = Math.floor(document.getElementById("number").value);
+            let f = Math.floor(document.getElementById("depth").value);
+
+            if (n < 1 || f < 1) {
+                document.getElementById("result").innerText = "🚨 Invalid input! Please enter positive whole numbers.";
+                return;
+            }
+
+            if (f > n - 1) {
+                document.getElementById("result").innerText = "🚨 That factorial is invalid! Enter a depth of " + (n - 1) + " or less.";
+                return;
+            }
+
+            let fact = n;
+            let temp_n = n;
+            let jump_count = 0;
+
+            while (temp_n - f > 0) {
+                temp_n -= f;
+                jump_count++;
+            }
+
+            temp_n = n;
+
+            while (jump_count > 0) {
+                temp_n -= f;
+                fact *= temp_n;
+                jump_count--;
+            }
+
+            let factorialNotation = f > 10 ? "!...!" : "!".repeat(f);
+
+            let humor = "";
+            if (fact > 1e6) humor = "🎉 Your factorial could buy EVERY lottery ticket on Earth!";
+            if (fact > 1e12) humor = "⚠️ Warning: This factorial might crash a bank’s mainframe!";
+            if (fact > 1e18) humor = "🌌 This number is officially stronger than gravity!";
+            if (fact > 1e30) humor = "🚀 NASA just called—they need this for their space calculations!";
+            if (fact > 1e100) humor = "🤯 You’ve successfully broken mathematics. Reality is optional now.";
+
+            document.getElementById("result").innerHTML = `<strong>${n}${factorialNotation} = ${fact}</strong><br>${humor}`;
+        }
+    </script>
+</body>
+</html>
