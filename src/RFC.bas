@@ -105,9 +105,9 @@ ENDIF
 
 NEXT_BIRTHDAY = 1027 * 10000 + NEXT_BIRTHDAY_YEAR  REM Generates 10272025, 10272026, etc.
 
-REM Easter Egg Trigger Override
-IF N = 27 AND F = 10 THEN
-    VALUE = NEXT_BIRTHDAY
+REM Easter Egg Trigger Overrides
+IF N = 27 AND F = 10 THEN VALUE = NEXT_BIRTHDAY
+IF N = 16 AND F = 5 THEN VALUE = 5162025
 ENDIF
 
 REM Check for birthday celebration
