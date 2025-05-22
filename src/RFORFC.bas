@@ -26,6 +26,28 @@ IF F > N - 1 THEN
  PRINT "That factorial is invalid, please enter a factorial that is "; N -1; " or less."
  GOTO ASK_F
 ENDIF
+DIM responses$(16)
+responses$(1) = "The universe shudders. Somewhere, a physicist spills their coffee in horror."
+responses$(2) = "Your calculator sighs deeply, questioning its life choices."
+responses$(3) = "A mysterious portal opens. You hear ominous chanting. Probably fine."
+responses$(4) = "Congratulations! You’ve summoned a math gremlin. It’s now living in your keyboard."
+responses$(5) = "The rabbit caught you and tickle tortured you until you apologized and agreed to never do this again."
+responses$(6) = "A cosmic librarian appears, shaking their head. 'This is why we can’t have nice things.'"
+responses$(7) = "Your calculator calls tech support. It’s crying."
+responses$(8) = "You have been added to the government watchlist for crimes against mathematics."
+responses$(9) = "Math Elders awake from their eternal slumber. They judge you silently."
+responses$(10) = "Reality folds in on itself. You are now the sole witness to existence."
+responses$(11) = "A tiny void swirls on your screen. You have precisely five seconds to run."
+responses$(12) = "The laws of arithmetic revoke your privileges. Your calculator now only performs interpretive dance."
+responses$(13) = "A stern-looking mathematician appears and confiscates your ability to count past five."
+responses$(14) = "Your calculator quietly uninstalls itself. You had one job."
+responses$(15) = "A glowing message appears: 'Error 404: Existence not found.'"
+responses$(16) = "You are now legally required to apologize to every mathematician in history."
+
+IF N = 0 AND F = 0 THEN
+  index = INT(RND * 16) + 1
+  PRINT responses$(index)
+ENDIF
 
 REM Get current system time properly
 TIME Year$, Month$, Day$, Hour$, Minute$, Second$
