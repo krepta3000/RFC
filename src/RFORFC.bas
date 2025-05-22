@@ -10,7 +10,7 @@ PRINT "--------------------------------------------------"
 ASK_N:
 INPUT "Enter a positive whole number: ", N
 N = FLOOR(N)
-IF N < 1 THEN 
+IF N < 0 THEN 
  PRINT "Invalid input, please try again."
  GOTO ASK_N
 ENDIF
@@ -18,7 +18,7 @@ ENDIF
 ASK_F:
 INPUT "Enter factorial depth (! count): ", F
 F = FLOOR(F)
-IF F < 1 THEN
+IF F < 0 THEN
  PRINT "Invalid input, please try again."
  GOTO ASK_F
 ENDIF
