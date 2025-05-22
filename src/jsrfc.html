@@ -29,15 +29,44 @@
             let n = Math.floor(document.getElementById("number").value);
             let f = Math.floor(document.getElementById("depth").value);
 
-            if (n < 1 || f < 1) {
+            if (n < 0 || f < 0) {
                 document.getElementById("result").innerText = "🚨 Invalid input! Please enter positive whole numbers.";
                 return;
             }
 
-            if (f > n - 1) {
+            if (f > n - 1 && f > 0) {
                 document.getElementById("result").innerText = "🚨 That factorial is invalid! Enter a depth of " + (n - 1) + " or less.";
                 return;
             }
+
+const responses = [
+  "The universe shudders. Somewhere, a physicist spills their coffee in horror.",
+  "Your calculator sighs deeply, questioning its life choices.",
+  "A mysterious portal opens. You hear ominous chanting. Probably fine.",
+  "Congratulations! You’ve summoned a math gremlin. It’s now living in your keyboard.",
+  "The rabbit caught you and tickle tortured you until you apologized and agreed to never do this again.",
+  "A cosmic librarian appears, shaking their head. 'This is why we can’t have nice things.'",
+  "Your calculator calls tech support. It’s crying.",
+  "You have been added to the government watchlist for crimes against mathematics.",
+  "Math Elders awake from their eternal slumber. They judge you silently.",
+  "Reality folds in on itself. You are now the sole witness to existence.",
+  "A tiny void swirls on your screen. You have precisely five seconds to run.",
+  "The laws of arithmetic revoke your privileges. Your calculator now only performs interpretive dance.",
+  "A stern-looking mathematician appears and confiscates your ability to count past five.",
+  "Your calculator quietly uninstalls itself. You had one job.",
+  "A glowing message appears: 'Error 404: Existence not found.'",
+  "You are now legally required to apologize to every mathematician in history."
+];
+
+function ridiculousFactorial(n, f) {
+  if (n === 0 && f === 0) {
+    return responses[Math.floor(Math.random() * responses.length)];
+  } else {
+    return Math.pow(n, f);
+  }
+}
+
+console.log(ridiculousFactorial(0, 0));
 
             let fact = n;
             let temp_n = n;
