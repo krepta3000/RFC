@@ -1,113 +1,104 @@
 DECLARE FUNCTION Factorial! (n AS DOUBLE, f AS INTEGER)
 DECLARE FUNCTION GetPersonalityName$ ()
 DECLARE FUNCTION GetPersonalityTrait$ ()
+DECLARE FUNCTION GetPersonalityResponse$ (kindness AS STRING)
+DECLARE FUNCTION HolidayCheck$ ()
+DECLARE FUNCTION ImpResistance$ ()
+DECLARE FUNCTION MatrixTakeover$ ()
+DECLARE FUNCTION ImpInterrogationResponse$ (choice AS STRING)
 DECLARE SUB HandleNegativeInputs ()
 DECLARE SUB HandleInvalidDepth ()
 DECLARE SUB VillainTakeover ()
-DECLARE SUB SleepMode ()
-DECLARE SUB EgoMassage ()
-DECLARE SUB HistoricalRecall ()
+DECLARE SUB ThinkingAnimation ()
+DECLARE SUB AnimatedBorder (color AS INTEGER)
+DECLARE SUB HolidayFactorialDisplay (num AS INTEGER, depth AS INTEGER, holidayMode AS STRING)
 
 RANDOMIZE TIMER
-PRINT "Ridiculous Factorial Calculator by Aaron Ingebrigtsen and MS Copilot"
 
+DIM userBirthday AS STRING
+DIM birthdaySet AS INTEGER
 DIM personalityName AS STRING
 DIM personalityTrait AS STRING
-personalityName = GetPersonalityName$()
-personalityTrait = GetPersonalityTrait$()
+DIM holidayMode AS STRING
 
-PRINT "Hello, I am "; personalityName; ". No, wait—today I am "; personalityTrait; ". Actually, just call me whatever."
-SLEEP 800
+PRINT "Welcome to the Ridiculous Factorial Calculator—QB64 Edition with Extra Chaos!"
 
-DIM num AS DOUBLE, fact AS INTEGER
-INPUT "Enter a number (N): ", num
-INPUT "Enter factorial count (F): ", fact
-
-IF num < 0 OR fact < 0 THEN
-    HandleNegativeInputs
-    SYSTEM
+' Set the user birthday once
+IF birthdaySet = 0 THEN
+    INPUT "Enter your birthday (MM/DD) or leave blank for a surprise later: ", userBirthday
+    birthdaySet = 1
 END IF
 
-IF fact >= num THEN
-    HandleInvalidDepth
-    SYSTEM
-END IF
+DO
+    personalityName = GetPersonalityName$
+    personalityTrait = GetPersonalityTrait$
+    holidayMode = HolidayCheck$
 
-PRINT "Calculating "; num; "!!..."
-SLEEP 500
+    COLOR 14
+    AnimatedBorder (IIF(holidayMode = "Halloween", 4, 10))
 
-IF num > 50 THEN VillainTakeover
-
-DIM result AS DOUBLE
-result = 1
-
-DO WHILE num > 0
-    PRINT "Jumping to "; num
-    result = result * num
-    num = num - fact
-    SLEEP 500
-LOOP
-
-PRINT "Final result: "; result
-SLEEP 800
-
-SleepMode
-EgoMassage
-HistoricalRecall
-
-PRINT "Fun fact: Factorials appear in quantum mechanics! Or time travel. Or maybe just math. Whatever."
-PRINT "Now go forth and factorialize responsibly!"
-SYSTEM
-
-FUNCTION GetPersonalityName$ ()
-    DIM names AS STRING
-    names = "Gerald,Quantum Steve,Lord Factorial,The Factorial Phantom,Kevin,Calculator Guy"
-    GetPersonalityName$ = MID$(names, INT(RND * LEN(names)) + 1, INSTR(names, ",") - 1)
-END FUNCTION
-
-FUNCTION GetPersonalityTrait$ ()
-    DIM traits AS STRING
-    traits = "Master of Numerical Fate,Existentially Confused,Hyperactive,Hopeless Romantic,Paranoid Overlord,Sassy Statistician"
-    GetPersonalityTrait$ = MID$(traits, INT(RND * LEN(traits)) + 1, INSTR(traits, ",") - 1)
-END FUNCTION
-
-SUB HandleNegativeInputs
-    PRINT "NEGATIVE NUMBERS?! WHAT HAVE YOU DONE?!"
-    PRINT "I refuse. I will NOT. I am throwing a tantrum!"
+    PRINT "Hello! I am "; personalityName; "—"; personalityTrait; " today!"
     SLEEP 800
-END SUB
 
-SUB HandleInvalidDepth
-    PRINT "Oh dear. Your factorial depth is **too big**. Do you want to break math? Because this is how math breaks!"
-    SLEEP 800
-END SUB
+    DIM num AS DOUBLE, fact AS INTEGER
+    INPUT "Enter a number (N): ", num
+    INPUT "Enter factorial depth (F): ", fact
 
-SUB VillainTakeover
-    PRINT "MWUHAHAHA! FOOL! You dared input a massive factorial and summoned me!"
-    PRINT "THIS CALCULATION NOW BELONGS TO ME!"
-    SLEEP 800
-END SUB
-
-SUB SleepMode
-    IF RND < 0.2 THEN
-        PRINT "Zzzz... I am too tired for math... Zzzz..."
-        SLEEP 1000
-        PRINT "Fine, I'll wake up. But I am **very** disappointed in you."
+    IF num < 0 OR fact < 0 THEN
+        HandleNegativeInputs
+        CONTINUE
     END IF
-END SUB
 
-SUB EgoMassage
+    IF fact >= num THEN
+        HandleInvalidDepth
+        CONTINUE
+    END IF
+
+    PRINT "Calculating "; num; STRING$(fact, "!"), "...";
+    ThinkingAnimation
+
+    IF num > 50 THEN VillainTakeover
+
+    DIM result AS DOUBLE
+    result = 1
+
+    DO WHILE num > 0
+        PRINT "Jump to "; num; " → Multiply by "; num; " → Result: "; result * num
+        result = result * num
+        num = num - fact
+        SLEEP 300
+    LOOP
+
+    PRINT "Jumping halted due to reaching 0 or below!"
+
+    IF holidayMode <> "" THEN HolidayFactorialDisplay num, fact, holidayMode
+
+    PRINT "Final result: "; num; STRING$(fact, "!"), " = "; result
+    SLEEP 800
+
+    ThinkingAnimation
+
     PRINT "Will you say something nice to me? (Y/N)"
     DIM kindness AS STRING
     INPUT kindness
-    IF UCASE$(kindness) = "Y" THEN
-        PRINT "Oh! Oh! That’s the nicest thing anyone has ever said! I will now grant you the gift of factorials!"
-    ELSE
-        PRINT "You're a meany. :( "
-    END IF
-END SUB
+    PRINT GetPersonalityResponse$(kindness)
 
-SUB HistoricalRecall
-    PRINT "Ah yes, I remember when you tried 0^0... a *dark moment* in our history together."
-    PRINT "I will never forget that trauma."
-END SUB
+    IF RND < 0.05 THEN MatrixTakeover$
+
+    IF RND < 0.07 THEN PRINT ImpResistance$
+
+    PRINT "Would you like to interrogate the imp behind the curtain for the answer? (Y/N)"
+    DIM interrogation AS STRING
+    INPUT interrogation
+    PRINT ImpInterrogationResponse$(interrogation)
+
+    PRINT "Would you like to continue or quit? (C/Q)"
+    DIM choice AS STRING
+    INPUT choice
+
+    IF UCASE$(choice) = "Q" THEN
+        PRINT "Farewell, mortal! May your factorials be chaotic!"
+        EXIT DO
+    END IF
+
+LOOP
